@@ -51,10 +51,39 @@ public class Problem005{
         return s.substring(maxStart,maxEnd+1);
     }
 
+    public String longestPalindrome2(String s) {
+        String a =s;
+        String b = new StringBuffer(s).reverse().toString();
+        int[][] datas = new int[a.length()][b.length()];
+        int i,j;
+        int max=0;
+        int end1=-1;
+        for (i=0;i<a.length();i++){
+            datas[i][0] = a.charAt(i)==b.charAt(0)? 1:0;
+        }
+        for (j=0;j<b.length();j++){
+            datas[0][j] = a.charAt(0)==b.charAt(j)? 1:0;
+        }
+        for (i=1;i<a.length();i++){
+            for (j=1;j<b.length();j++){
+                datas[i][j]=a.charAt(i)==b.charAt(j)?datas[i-1][j-1]+1:0;
+            }
+        }
+        for (i=0;i<a.length();i++) {
+            for (j = 0; j < b.length(); j++) {
+                if (datas[i][j]>max&&i+j+2-datas[i][j]==s.length()){
+                    max = datas[i][j];
+                    end1 = i;
+                }
+            }
+        }
+        return a.substring(end1-max+1,end1+1);
+    }
+
     public static void main(String... args){
         Problem005 main = new Problem005();
         String s = "cbbd";
-        String sub =  main.longestPalindrome(s);
+        String sub =  main.longestPalindrome2(s);
         System.out.println(sub);
     }
 }
