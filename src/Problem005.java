@@ -80,10 +80,53 @@ public class Problem005{
         return a.substring(end1-max+1,end1+1);
     }
 
+    public String preProcess(String s){
+        StringBuilder builder = new StringBuilder();
+        builder.append("#");
+        for (int i=0;i<s.length();i++){
+             builder.append(s.charAt(i));
+             builder.append("#");
+        }
+        return builder.toString();
+    }
+
+    public String longestPalindrome3(String s) {
+        s = preProcess(s);
+        int right = 0;
+        int[] p = new int[s.length()];
+        p[0]=1;
+        int center =0;
+        int i = 1;
+        while (i<s.length()) {
+            p[i] = i <= right ? Math.min(p[2 * center - i], 2 * (right - i) + 1) : 1;
+            while (i + (p[i] + 1) / 2 < s.length() && i - (p[i] + 1) / 2 > -1 && s.charAt(i + (p[i] + 1) / 2) == s.charAt(i - (p[i] + 1) / 2)) {
+                p[i] += 2;
+            }
+            if (i + (p[i] - 1) / 2 > right) {
+                center = i;
+                right = i + (p[i] - 1) / 2;
+            }
+            i++;
+        }
+        int max =0;
+        int index = -1;
+        for (i=0;i<s.length();i++){
+            if (p[i]>max){
+                max = p[i];
+                index = i;
+            }
+        }
+        StringBuilder builder = new StringBuilder("");
+        for (i=index-(max-3)/2;i<index+(max-1)/2;i+=2){
+            builder.append(s.charAt(i));
+        }
+        return builder.toString();
+    }
+
     public static void main(String... args){
         Problem005 main = new Problem005();
-        String s = "cbbd";
-        String sub =  main.longestPalindrome2(s);
+        String s = "abccba";
+        String sub =  main.longestPalindrome3(s);
         System.out.println(sub);
     }
 }
