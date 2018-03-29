@@ -1,9 +1,6 @@
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode(int x) { val = x; }
-}
-public class AddTwoNumbers002 {
+import DataStructures.ListNode;
+
+public class Problem002 {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode initial = new ListNode(0);
@@ -34,7 +31,7 @@ public class AddTwoNumbers002 {
         a2.next = a3;
         b1.next = b2;
         b2.next = b3;
-        AddTwoNumbers002 main = new AddTwoNumbers002();
+        Problem002 main = new Problem002();
         main.addTwoNumbers(a1,b1);
     }
 }

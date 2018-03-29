@@ -1,5 +1,5 @@
 
-public class TwoSum001 {
+public class Problem001 {
 
     public class data{
         public int value;
@@ -83,7 +83,7 @@ public class TwoSum001 {
     }
 
     public static void main(String... args){
-            TwoSum001 main = new TwoSum001();
+            Problem001 main = new Problem001();
             int [] array = {3,2,3};
             int [] result = main.twoSum(array,6);
     }
