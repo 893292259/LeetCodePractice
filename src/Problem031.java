@@ -16,7 +16,7 @@ public class Problem031 {
                 for (j=nums.length-1;j>i;j--){
                     if (nums[j]>nums[i]){
                         index = j;
-                        break;
+
                     }
                 }
                 t = nums[i];
@@ -34,6 +34,7 @@ public class Problem031 {
             }
         }
     }
+
     public static void main(String... args){
         Problem031 main = new Problem031();
         int[] nums = {2,3,4,1,2,3,3,2};
