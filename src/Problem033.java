@@ -1,8 +1,5 @@
 public class Problem033 {
     public int binarySearch( int[]datas, int target, int head, int tail){
-        if (head>tail){
-            return -1;
-        }
         if (head==tail){
             if (datas[head] == target){
                 return head;
@@ -16,16 +13,12 @@ public class Problem033 {
             return datas[mid]<target? binarySearch(datas,target,mid+1,tail):binarySearch(datas,target,head,mid);
         }
     }
-
-
-
     public int search(int[] nums, int target) {
         if (nums.length ==0){
             return -1;
         }
-        if (nums.length==1){
-            if (nums[0]==target)return 0;
-            else return -1;
+        else if (nums[0]<=nums[nums.length-1]){
+            return binarySearch(nums,target,0,nums.length-1);
         }
         else {
             int head = 0;
