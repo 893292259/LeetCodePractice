@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Problem078 {
-
     public List<List<Integer>> sub(int[] nums,int restirct){
         List<List<Integer>> results = new ArrayList<>();
       if (restirct==nums.length){
@@ -20,7 +19,6 @@ public class Problem078 {
       }
       return results;
     }
-
     public List<List<Integer>> subsets(int[] nums) {
         return sub(nums,0);
     }
