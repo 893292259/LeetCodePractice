@@ -1,9 +1,5 @@
 import DataStructures.TreeNode;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
-
 public class Problem124 {
     int max;
     public int helper(TreeNode root) {
