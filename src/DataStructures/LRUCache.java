@@ -58,7 +58,7 @@ public class LRUCache {
             Node node = pos.get(key);
             if (node.next.next!=null) {
                 pos.put(key, last);
-                last.next = new Node(key);
+                last.next = node.next;
                 last = last.next;
                 node.next = node.next.next;
                 pos.put(node.next.val, node);
