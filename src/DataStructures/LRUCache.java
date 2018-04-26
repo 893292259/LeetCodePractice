@@ -1,23 +1,17 @@
 package DataStructures;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class LRUCache {
-    class Node{
-        int val;
-        Node next;
-        Node (int val){this.val = val;}
-    }
-    private Node first;
-    private Node last;
-    private Map <Integer,Node> pos;
+    private ListNode first;
+    private ListNode last;
+    private Map <Integer,ListNode> pos;
     private Map<Integer,Integer> data;
     private int capacity;
     public LRUCache(int capacity) {
         data = new HashMap<>();
         pos = new HashMap<>();
-        first = new Node(0);
+        first = new ListNode(0);
         this.capacity = capacity;
     }
 
@@ -40,7 +34,7 @@ public class LRUCache {
     }
     private void refresh (int key){
         if (!pos.containsKey(key)){
-            Node node = new Node(key);
+            ListNode node = new ListNode(key);
             if (last==null){
                 first.next = node;
                 last = node;
@@ -55,7 +49,7 @@ public class LRUCache {
 
         }
         else{
-            Node node = pos.get(key);
+            ListNode node = pos.get(key);
             if (node.next.next!=null) {
                 pos.put(key, last);
                 last.next = node.next;
