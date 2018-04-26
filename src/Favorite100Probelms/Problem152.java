@@ -35,7 +35,7 @@ public class Problem152 {
     }
     public static void main(String... args){
         Problem152 main = new Problem152();
-        int[] nums = {2,3,-2,4};
+        int[] nums = {2,3,-2};
         System.out.println(main.maxProduct(nums));
     }
 }
